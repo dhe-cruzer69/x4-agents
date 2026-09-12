@@ -1,15 +1,22 @@
-# Security Policy
+# Security Policy — x4-agents
 
-Agent runtimes are high-risk software. We take security seriously.
+## Threat model (high level)
+
+- Prompt injection leading to unintended tool use
+- Privilege escalation via tool permissions
+- Sandbox escape
+- Secret leakage through tool arguments or logs
+- Audit log tampering
+- Supply-chain compromise of dependencies
 
 ## Reporting
 
-Use GitHub Security Advisories. Do not open public issues for vulnerabilities.
+Report vulnerabilities privately (GitHub security advisory preferred). Do not open public issues for security problems.
 
-## Design Principles
+## Design principles
 
-- No unrestricted production credentials for agents
-- Every tool call passes through policy + permission + sandbox
-- Immutable audit log of all tool invocations
-- Human approval required for high-risk actions
-- Resource limits and timeouts by default
+1. Least privilege by default
+2. Explicit human approval for high-risk actions
+3. All tool invocations audited
+4. Execution only inside approved sandbox boundaries
+5. No unrestricted production credentials for autonomous agents

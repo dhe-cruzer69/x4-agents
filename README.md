@@ -1,40 +1,47 @@
 # x4-agents
 
-**Flagship secure multi-agent orchestration runtime for the X4 ecosystem.**
+**Flagship secure multi-agent orchestration runtime**
 
-Task graphs • sandboxed tools • approval gates • immutable audit • memory • MCP integration.
+Task graphs • sandboxed tools • approvals • audit • memory • MCP
 
-Built on the lessons and code patterns from [ariexus](https://github.com/dhe-cruzer69/ariexus).
+## Vision
 
-## Why x4-agents
+x4-agents is the center of the X4 ecosystem. It evolves concepts from the existing `ariexus` prototype into a production-oriented agent harness with strong security boundaries.
 
-Most “agent” repositories are chat wrappers. x4-agents is designed for production controls:
-
-Agent → Policy → Risk classification → Permission check → Sandboxed tool → Audit → Verification → Result
-
-## Quick Start (planned)
-
-```bash
-pip install x4-agents
-x4 agent run "research the current state of MCP and summarize with citations"
+```
+USER → Planner → Task Graph → Agents (Research / Code / Browser)
+         ↓
+    Tool Runtime (x4-ai + x4-mcp-gateway + x4-sandbox)
+         ↓
+    Policy → Approval → Execution → Audit → Memory → Verification → Result
 ```
 
-## Architecture
+## Non-negotiable controls
 
-See ARCHITECTURE.md (coming).
-
-## Relationship to ariexus
-
-ariexus is the working prototype. x4-agents is the production evolution that will absorb its patterns while adding multi-agent orchestration, persistent memory and full MCP support.
+- Every tool call goes through policy evaluation
+- High-risk actions require human approval
+- Immutable audit log
+- Sandbox isolation for execution
+- Cost and permission tracking
 
 ## Status
 
-v0.1.0 — structure + documentation baseline.
+Foundation stage. Architecture and security model defined. Implementation in progress, seeded from ariexus patterns.
+
+## Relationship to ariexus
+
+`ariexus` remains the historical prototype. Mature modules (task models, approval, audit, sandboxed tools) will be ported and improved here while preserving attribution.
+
+## Quick links
+
+- [SECURITY.md](SECURITY.md)
+- [ROADMAP.md](ROADMAP.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
 
 Apache-2.0
 
-## Support
+---
 
-[Sponsor](https://github.com/sponsors/dhe-cruzer69)
+Part of the [X4 ecosystem](https://github.com/dhe-cruzer69) by ARIEX4Ops.
