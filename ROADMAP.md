@@ -1,25 +1,16 @@
 # x4-agents Roadmap
 
-## Phase 0 — Foundation
-- Project structure
-- Security policy
-- Relationship to ariexus documented
+## v0.1
+- Foundation + documentation
+- Migration of mature concepts from ariexus
+- Basic planner + task graph + approval + audit
 
-## Phase 1 — Core Runtime
-- Task graph model
-- Planner interface
-- Basic tool registry
-- Approval + audit primitives
+## v0.2
+- Multi-agent delegation
+- Integration with x4-ai, x4-memory, x4-sandbox, x4-mcp-gateway
+- First runnable examples
 
-## Phase 2 — Integration
-- x4-sandbox integration
-- x4-memory integration
-- x4-mcp-gateway integration
-- x4-ai provider layer
-
-## Phase 3 — Production Hardening
-- Comprehensive tests
-- Evaluation suite
+## v0.3+
+- Evaluation harness
 - Cost tracking
-- Observability
-- First stable release candidate
+- Human-in-the-loop UI hooks
