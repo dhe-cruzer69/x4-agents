@@ -2,46 +2,44 @@
 
 **Flagship secure multi-agent orchestration runtime**
 
-Task graphs • sandboxed tools • approvals • audit • memory • MCP
+Task graphs • sandboxed tools • approval gates • audit logging • memory • MCP
+
+Built as the evolution of the ariexus prototype.
 
 ## Vision
 
-x4-agents is the center of the X4 ecosystem. It evolves concepts from the existing `ariexus` prototype into a production-oriented agent harness with strong security boundaries.
+Provide a production-oriented agent harness where every tool call is policy-checked, optionally human-approved, sandboxed, and fully audited.
+
+## Architecture (high level)
 
 ```
-USER → Planner → Task Graph → Agents (Research / Code / Browser)
+USER → Task Interface → Planner → Task Graph
          ↓
-    Tool Runtime (x4-ai + x4-mcp-gateway + x4-sandbox)
+   Research / Coding / Browser Agents
          ↓
-    Policy → Approval → Execution → Audit → Memory → Verification → Result
+   Tool Runtime (x4-sandbox + x4-mcp-gateway)
+         ↓
+   Policy → Permission → Approval → Execution → Audit
+         ↓
+   Memory (x4-memory) → Verification → Result
 ```
-
-## Non-negotiable controls
-
-- Every tool call goes through policy evaluation
-- High-risk actions require human approval
-- Immutable audit log
-- Sandbox isolation for execution
-- Cost and permission tracking
 
 ## Status
 
-Foundation stage. Architecture and security model defined. Implementation in progress, seeded from ariexus patterns.
+Foundation stage. Core concepts and structure are being established. Not production-ready.
 
-## Relationship to ariexus
+## Related Projects
 
-`ariexus` remains the historical prototype. Mature modules (task models, approval, audit, sandboxed tools) will be ported and improved here while preserving attribution.
+- [x4-core](https://github.com/dhe-cruzer69/x4-core)
+- [x4-sandbox](https://github.com/dhe-cruzer69/x4-sandbox)
+- [x4-mcp-gateway](https://github.com/dhe-cruzer69/x4-mcp-gateway)
+- [x4-memory](https://github.com/dhe-cruzer69/x4-memory)
+- [ariexus](https://github.com/dhe-cruzer69/ariexus) (prototype ancestor)
 
-## Quick links
+## Security
 
-- [SECURITY.md](SECURITY.md)
-- [ROADMAP.md](ROADMAP.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
+See [SECURITY.md](SECURITY.md). High-risk actions require explicit policy and optional human approval.
 
 ## License
 
 Apache-2.0
-
----
-
-Part of the [X4 ecosystem](https://github.com/dhe-cruzer69) by ARIEX4Ops.

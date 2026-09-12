@@ -1,23 +1,25 @@
 # x4-agents Roadmap
 
 ## Phase 0 — Foundation
-- [x] Repository structure & security baseline
-- [ ] Port core models and executor from ariexus
-- [ ] CI + tests skeleton
+- Project structure
+- Security policy
+- Relationship to ariexus documented
 
-## Phase 1 — Runtime
-- [ ] Planner + task graph
-- [ ] Tool registry + policy engine
-- [ ] Approval workflow
-- [ ] Audit log
+## Phase 1 — Core Runtime
+- Task graph model
+- Planner interface
+- Basic tool registry
+- Approval + audit primitives
 
 ## Phase 2 — Integration
-- [ ] x4-ai provider layer
-- [ ] x4-sandbox execution
-- [ ] x4-mcp-gateway tools
-- [ ] x4-memory persistence
+- x4-sandbox integration
+- x4-memory integration
+- x4-mcp-gateway integration
+- x4-ai provider layer
 
-## Phase 3 — Agents & evaluation
-- [ ] Research / coding / browser agent specializations
-- [ ] Evaluation harness and benchmarks
-- [ ] First public release (v0.1)
+## Phase 3 — Production Hardening
+- Comprehensive tests
+- Evaluation suite
+- Cost tracking
+- Observability
+- First stable release candidate
