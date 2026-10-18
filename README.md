@@ -49,6 +49,31 @@ USER TASK
 
 Full details in [ARCHITECTURE.md](ARCHITECTURE.md).
 
+<!-- X4-APEX-DIAGRAM-START:x4-agents -->
+
+```mermaid
+flowchart TB
+    TASK[User Task] --> PLAN[Planner]
+    PLAN --> GRAPH[Typed Task Graph]
+    GRAPH --> CLASSIFY[Risk and Capability Classification]
+    CLASSIFY --> POLICY{Policy Decision}
+    POLICY -->|deny| DENY[Reject and Audit]
+    POLICY -->|approval required| APPROVAL[Human Approval]
+    POLICY -->|allow| TOOLS[Tool Runtime]
+    APPROVAL -->|approved| TOOLS
+    APPROVAL -->|denied or expired| DENY
+    TOOLS --> SAND[x4-sandbox]
+    TOOLS --> MCP[x4-mcp-gateway]
+    GRAPH --> MEMORY[x4-memory]
+    SAND --> VERIFY[Verification]
+    MCP --> VERIFY
+    MEMORY --> VERIFY
+    VERIFY --> EVIDENCE[Evidence and Audit Record]
+    EVIDENCE --> RESULT[Result or UNKNOWN Review]
+```
+
+<!-- X4-APEX-DIAGRAM-END:x4-agents -->
+
 ## Security model (non-negotiable)
 
 ```
