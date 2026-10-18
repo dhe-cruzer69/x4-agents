@@ -127,28 +127,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.
 
 > Status: architecture documentation; implementation and deployment claims require independent verification.
 
-```mermaid
-sequenceDiagram
-  autonumber
-  participant Caller
-  participant Orchestrator
-  participant Schema as Handoff validator
-  participant Policy
-  participant Worker as Specialist agent
-  participant Skills as Skills registry
-  participant Telemetry
-  Caller->>Orchestrator: Submit task
-  Orchestrator->>Schema: Validate task and limits
-  Schema-->>Orchestrator: Validated envelope or reject
-  Orchestrator->>Policy: Authorize plan
-  Policy-->>Orchestrator: Allow / deny / approval-needed
-  Orchestrator->>Worker: Dispatch bounded task
-  Worker->>Skills: Resolve permitted capability
-  Skills-->>Worker: Skill metadata
-  Worker->>Telemetry: Emit redacted lifecycle event
-  Worker-->>Orchestrator: Result + evidence references
-  Orchestrator->>Schema: Validate result contract
-  Orchestrator-->>Caller: Result or explicit failure
-```
 **Evidence note:** Confirm the actual handoff schema, policy gates, skill loading, and telemetry hooks in code before treating each arrow as implemented.
 
